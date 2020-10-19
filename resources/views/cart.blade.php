@@ -36,8 +36,10 @@
         {{ $cart->links() }}
     </div>
     
-    <p>Ship to {{ Auth::user()->address }}</p> 
-    <p>Total price: RM{{ $total }}</p>
+    <div class="my-4">
+        <p>Ship to {{ Auth::user()->address }}</p> 
+        <p>Total price: RM{{ $total }}</p>
+    </div>
 
     
     <form action="{{ route('cart.store', $row->id) }}" method="post">
