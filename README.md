@@ -1,6 +1,6 @@
-#Task/Assignment
+## Task/Assignment
 
-I use xampp mysql & vscode & git bash terminal in vscode
+I use xampp mysql & vscode & git bash terminal in vscode & composer
 
 1. Put the zip file and extract folder in my xampp htdocs folder ("C:\xampp\htdocs")
 2. Open the folder in Visual Studio Code
