@@ -10903,3 +10903,15 @@ a.text-dark:focus {
   }
 }
 
+.home-header {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.home-arrow {
+  position: absolute;
+  margin: 5px;
+  right: 20px;
+}
+
