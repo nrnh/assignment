@@ -1,27 +1,34 @@
 <template>
-    <div class="container" v-if="isHidden">
-        <div class="row">
-            <div class="col-md-8">
-                <img :src="products.prodImage" width="200px" height="200px" alt="">
-                <h2>{{ title() }}</h2>
+    <div class="container" v-if="isHidden"> 
+        <h3 class="text-center text-uppercase">{{ title() }}</h3>
+        <div class="row my-5">
+            <div class="col-md-6">
+                <img :src="products.prodImage" class="list-image">
             </div>
-            <div class="col-md-8">
-                <p>RM {{ roundPrice() }}</p>
-                <li v-for="description in products.prodDescription" :key="description.prodDescription">
-                    {{ description }}
-                </li> 
+            <div class="col-md-6">
+                <div class="view-item">
+                    <div class="d-flex">
+                        <p>Quantity </p>
+                        <div class="input-group w-25">
+                            <p @click="decrement(); totalPrice()" :count="temp.product_quantity">-</p>
+                            <input type="text" class="form-control text-center" v-model="temp.product_quantity" aria-describedby="basic-addon1">
+                            <p @click="increment(); totalPrice()" :count="temp.product_quantity">+</p>
+                        </div>
+                    </div>
+                    
+                    <p>RM{{ roundPrice() }}</p>
+                    <button class="btn btn-primary btn-lg" @click.prevent="createCart()">
+                        Add to Cart
+                    </button> 
+                
+                    <hr/>
+                    
+                    <p>Description</p>
+                    <ul v-for="desc in products.prodDescription" :key="desc.prodDescription">
+                        <li>{{ desc }}</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <button @click="decrement()" :count="temp.product_quantity">-</button>
-                {{ temp.product_quantity }}
-            <button @click="increment()" :count="temp.product_quantity">+</button>
-        </div>
-        <div class="row">
-              <button class="btn btn-primary" @click.prevent="createCart(); totalPrice()">
-                Add to Cart
-            </button> 
-            {{ message }}
         </div>
     </div>
 </template>
@@ -44,7 +51,7 @@
                     prodBrand: '',
                     prodDescription: [],
                     prodPrice: 0,
-                    prodproduct_quantity: 0,
+                    prodQuantity: 0,
                     prodImage: ''
                 },
                 temp: {
@@ -94,6 +101,7 @@
         },
 
         computed: {
+            
         },
 
         mounted() {

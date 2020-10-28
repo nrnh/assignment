@@ -2071,6 +2071,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2086,7 +2093,7 @@ __webpack_require__.r(__webpack_exports__);
         prodBrand: '',
         prodDescription: [],
         prodPrice: 0,
-        prodproduct_quantity: 0,
+        prodQuantity: 0,
         prodImage: ''
       },
       temp: {
@@ -37827,86 +37834,119 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.isHidden
     ? _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-md-8" }, [
+        _c("h3", { staticClass: "text-center text-uppercase" }, [
+          _vm._v(_vm._s(_vm.title()))
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row my-5" }, [
+          _c("div", { staticClass: "col-md-6" }, [
             _c("img", {
-              attrs: {
-                src: _vm.products.prodImage,
-                width: "200px",
-                height: "200px",
-                alt: ""
-              }
-            }),
-            _vm._v(" "),
-            _c("h2", [_vm._v(_vm._s(_vm.title()))])
+              staticClass: "list-image",
+              attrs: { src: _vm.products.prodImage }
+            })
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "col-md-8" },
-            [
-              _c("p", [_vm._v("RM " + _vm._s(_vm.roundPrice()))]),
-              _vm._v(" "),
-              _vm._l(_vm.products.prodDescription, function(description) {
-                return _c("li", { key: description.prodDescription }, [
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(description) +
-                      "\n            "
-                  )
-                ])
-              })
-            ],
-            2
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "button",
-            {
-              attrs: { count: _vm.temp.product_quantity },
-              on: {
-                click: function($event) {
-                  return _vm.decrement()
-                }
-              }
-            },
-            [_vm._v("-")]
-          ),
-          _vm._v(
-            "\n            " + _vm._s(_vm.temp.product_quantity) + "\n        "
-          ),
-          _c(
-            "button",
-            {
-              attrs: { count: _vm.temp.product_quantity },
-              on: {
-                click: function($event) {
-                  return _vm.increment()
-                }
-              }
-            },
-            [_vm._v("+")]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "row" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  _vm.createCart()
-                  _vm.totalPrice()
-                }
-              }
-            },
-            [_vm._v("\n            Add to Cart\n        ")]
-          ),
-          _vm._v(" \n        " + _vm._s(_vm.message) + "\n    ")
+          _c("div", { staticClass: "col-md-6" }, [
+            _c(
+              "div",
+              { staticClass: "view-item" },
+              [
+                _c("div", { staticClass: "d-flex" }, [
+                  _c("p", [_vm._v("Quantity ")]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "input-group w-25" }, [
+                    _c(
+                      "p",
+                      {
+                        attrs: { count: _vm.temp.product_quantity },
+                        on: {
+                          click: function($event) {
+                            _vm.decrement()
+                            _vm.totalPrice()
+                          }
+                        }
+                      },
+                      [_vm._v("-")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.temp.product_quantity,
+                          expression: "temp.product_quantity"
+                        }
+                      ],
+                      staticClass: "form-control text-center",
+                      attrs: {
+                        type: "text",
+                        "aria-describedby": "basic-addon1"
+                      },
+                      domProps: { value: _vm.temp.product_quantity },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.temp,
+                            "product_quantity",
+                            $event.target.value
+                          )
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "p",
+                      {
+                        attrs: { count: _vm.temp.product_quantity },
+                        on: {
+                          click: function($event) {
+                            _vm.increment()
+                            _vm.totalPrice()
+                          }
+                        }
+                      },
+                      [_vm._v("+")]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("RM" + _vm._s(_vm.roundPrice()))]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary btn-lg",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.createCart()
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    Add to Cart\n                "
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("p", [_vm._v("Description")]),
+                _vm._v(" "),
+                _vm._l(_vm.products.prodDescription, function(desc) {
+                  return _c("ul", { key: desc.prodDescription }, [
+                    _c("li", [_vm._v(_vm._s(desc))])
+                  ])
+                })
+              ],
+              2
+            )
+          ])
         ])
       ])
     : _vm._e()
