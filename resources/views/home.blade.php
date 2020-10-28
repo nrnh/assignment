@@ -2,24 +2,27 @@
 
 @section('content')
 
-    <div class="flex justify-between">
-        <h3 class="text-gray-700 text-center px-4 py-2 m-2">{{ __('Dashboard') }}</h3>
-        <div class="text-gray-700 text-center px-4 py-2 m-2">
-            @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-            @endif
-            {{ Auth::user()->name }}, {{ __('you are logged in!') }} 
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>{{ __('Dashboard') }}</h3>
+            </div>
+            <div class="col">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                    {{ Auth::user()->name }}, {{ __('you are logged in!') }} 
+            </div>
+            <div class="col">
+                <button v-on:click="toggleHide()" class="btn">Back</button>
+            </div>
         </div>
-        <button v-on:click="toggleHide()" class="text-white bg-gray-700 text-center px-10 py-2 m-2 rounded">Back</button>
-    </div>
-    <div class="container p-10 mx-auto bg-white">
-         
+        <div class="row">
             <product-list></product-list>
             <product-view></product-view>
-        
+        </div>
     </div>
-
 
 @endsection
