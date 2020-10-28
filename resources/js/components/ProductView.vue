@@ -17,10 +17,12 @@
                     </div>
                     
                     <p>RM{{ roundPrice() }}</p>
-                    <button class="btn btn-primary btn-lg" @click.prevent="createCart()">
+                    <button class="btn btn-primary btn-lg" @click.prevent="createCart(); message=false">
                         Add to Cart
                     </button> 
-                
+                    <div v-if="!message" class="alert alert-success my-2">
+                        Item added to cart.
+                    </div>
                     <hr/>
                     
                     <p>Description</p>
@@ -51,7 +53,7 @@
                     prodBrand: '',
                     prodDescription: [],
                     prodPrice: 0,
-                    prodQuantity: 0,
+                    prodQuantity: 1,
                     prodImage: ''
                 },
                 temp: {
@@ -61,7 +63,7 @@
                     product_price: 0,
                     product_quantity: 1
                 },
-                message: ''
+                message: true
             }
         },
         methods: {
@@ -92,8 +94,9 @@
             },
             createCart: function createCart() {
                 var input = this.temp;
-                axios.post('/storeCart', input);
-                this.message = "Successfully added to cart";
+                axios.post('/storeCart', input).then(response=>{
+                    window.location.reload();
+                })
             },
             totalPrice() {
                 this.temp.product_price = this.products.prodPrice * this.temp.product_quantity
@@ -110,6 +113,7 @@
                 this.temp.product_id = data.prodId;
                 this.temp.product_name = data.prodName;
                 this.temp.product_brand = data.prodBrand;
+                this.temp.product_price = data.prodPrice;
             }),
             bus.$on('hide', (hidden) => {
                 this.isHidden = hidden;
@@ -117,6 +121,7 @@
             bus.$on('list_hide', (list) => {
                 this.isHidden = list;
             })
+
         },
 
         created() {

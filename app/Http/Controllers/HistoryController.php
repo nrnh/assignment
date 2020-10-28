@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\History;
-use App\Models\Order;
+use App\Models\Cart;
 
 class HistoryController extends Controller
 {
@@ -41,7 +41,7 @@ class HistoryController extends Controller
 
     public function store(Request $request)
     {
-        Order::create($request->all());
+        Cart::create($request->all());
 
         return redirect()->to('history')
         ->with('success', 'Order has been placed');

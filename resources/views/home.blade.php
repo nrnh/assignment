@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
     <div class="container">
         <div class="row my-3 d-flex justify-content-between home-header">
             @if (session('status'))
@@ -17,6 +17,14 @@
                     <path id="Path_4" data-name="Path 4" d="M51.318,56.987h9.614" fill="none" stroke="#707070" stroke-width="1"/>
                 </g>
             </svg>
+        </div>
+
+        <div class="row">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success w-100" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
         </div>
 
         <div class="row">

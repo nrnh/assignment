@@ -98,7 +98,7 @@
     <footer class="text-muted font-small white">
         <hr/>
         <div class="row justify-content-center w-100">
-            <div class="col-md-5 text-left">
+            <div class="col-md-5 mx-3 text-left">
                 <p>Search</p>
                 <p>FAQ's</p>
                 <p>Returns Policy</p>

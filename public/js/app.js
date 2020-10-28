@@ -2078,6 +2078,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2093,7 +2095,7 @@ __webpack_require__.r(__webpack_exports__);
         prodBrand: '',
         prodDescription: [],
         prodPrice: 0,
-        prodQuantity: 0,
+        prodQuantity: 1,
         prodImage: ''
       },
       temp: {
@@ -2103,7 +2105,7 @@ __webpack_require__.r(__webpack_exports__);
         product_price: 0,
         product_quantity: 1
       },
-      message: ''
+      message: true
     };
   },
   methods: {
@@ -2132,8 +2134,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     createCart: function createCart() {
       var input = this.temp;
-      axios.post('/storeCart', input);
-      this.message = "Successfully added to cart";
+      axios.post('/storeCart', input).then(function (response) {
+        window.location.reload();
+      });
     },
     totalPrice: function totalPrice() {
       this.temp.product_price = this.products.prodPrice * this.temp.product_quantity;
@@ -2148,6 +2151,7 @@ __webpack_require__.r(__webpack_exports__);
       _this.temp.product_id = data.prodId;
       _this.temp.product_name = data.prodName;
       _this.temp.product_brand = data.prodBrand;
+      _this.temp.product_price = data.prodPrice;
     }), _app__WEBPACK_IMPORTED_MODULE_0__["bus"].$on('hide', function (hidden) {
       _this.isHidden = hidden;
     }), _app__WEBPACK_IMPORTED_MODULE_0__["bus"].$on('list_hide', function (list) {
@@ -37923,7 +37927,8 @@ var render = function() {
                     on: {
                       click: function($event) {
                         $event.preventDefault()
-                        return _vm.createCart()
+                        _vm.createCart()
+                        _vm.message = false
                       }
                     }
                   },
@@ -37933,6 +37938,14 @@ var render = function() {
                     )
                   ]
                 ),
+                _vm._v(" "),
+                !_vm.message
+                  ? _c("div", { staticClass: "alert alert-success my-2" }, [
+                      _vm._v(
+                        "\n                    Item added to cart.\n                "
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
@@ -50190,6 +50203,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   mounted: function mounted() {
     this.countCart();
   }
+});
+$("document").ready(function () {
+  setTimeout(function () {
+    $("div.alert").remove();
+  }, 5000);
 });
 
 /***/ }),
