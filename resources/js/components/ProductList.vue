@@ -1,7 +1,7 @@
 <template>
     <div class="container" v-if="!isHidden">
         <div class="row justify-content-center">
-            <div class="col-md-6 justify-content-center d-flex list-box" v-for="(product, index) in products" :key="product.prodId">
+            <div class="col-md-5 justify-content-center d-flex list-box" v-for="(product, index) in products" :key="product.prodId">
                 <div>
                     <a href="#" @click="isHidden=true; sendTrue(); sendData(index)">
                         <img :src="product.prodImage" class="list-image" alt="Photo">

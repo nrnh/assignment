@@ -37752,7 +37752,7 @@ var render = function() {
               "div",
               {
                 key: product.prodId,
-                staticClass: "col-md-6 justify-content-center d-flex list-box"
+                staticClass: "col-md-5 justify-content-center d-flex list-box"
               },
               [
                 _c("div", [

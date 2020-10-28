@@ -94,5 +94,29 @@
         @yield('content')
         
     </div>
+   
+    <footer class="text-muted font-small white">
+        <hr/>
+        <div class="row justify-content-center w-100">
+            <div class="col-md-5 text-left">
+                <p>Search</p>
+                <p>FAQ's</p>
+                <p>Returns Policy</p>
+                <p>Terms & conditions</p>
+                <p>Privacy Policy</p>
+            </div>
+            <div class="col-md-6">
+                <div class="input-group w-75 mx-auto">
+                    <input type="text" class="form-control" placeholder="your@email.com" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">email</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="text-center py-3">Copyright © 2020 Humaira.</div>
+    </footer>
+
 </body>
 </html>
