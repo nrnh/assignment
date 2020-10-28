@@ -1,25 +1,16 @@
 <template>
     <div class="container" v-if="!isHidden">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div v-for="(product, index) in products" :key="product.prodId" class="card">
-                    <div class="card-header">
+            <div class="col-md-6 justify-content-center d-flex list-box" v-for="(product, index) in products" :key="product.prodId">
+                <div>
+                    <a href="#" @click="isHidden=true; sendTrue(); sendData(index)">
+                        <img :src="product.prodImage" class="list-image" alt="Photo">
+                    </a>
+                    <div class="text-center m-4">
                         <a href="#" @click="isHidden=true; sendTrue(); sendData(index)">
-                            {{ title(index) }}
+                            <h5>{{ title(index) }}</h5>
                         </a>
-                    </div>
-                    <div class="card-body">
-                        <a href="#" @click="isHidden=true; sendTrue(); sendData(index)">
-                            <img :src="product.prodImage" width="100px" height="100px" alt="Photo">
-                        </a>
-                        <div>
-                            Name: <a href="#" @click="isHidden=true; sendTrue(); sendData(index)">{{ product.prodName }}<br></a> 
-                            Price: RM{{ roundPrice(index) }} <br>
-                            Details: 
-                            <li v-for="description in product.prodDescription" :key="description.prodDescription">
-                                {{ description }}
-                            </li> 
-                        </div>      
+                        <p>RM{{ roundPrice(index) }}</p>              
                     </div>
                 </div>
             </div>

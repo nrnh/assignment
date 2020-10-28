@@ -1930,15 +1930,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -37753,36 +37744,18 @@ var render = function() {
   var _c = _vm._self._c || _h
   return !_vm.isHidden
     ? _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "row justify-content-center" }, [
-          _c(
-            "div",
-            { staticClass: "col-md-8" },
-            _vm._l(_vm.products, function(product, index) {
-              return _c("div", { key: product.prodId, staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: "#" },
-                      on: {
-                        click: function($event) {
-                          _vm.isHidden = true
-                          _vm.sendTrue()
-                          _vm.sendData(index)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.title(index)) +
-                          "\n                    "
-                      )
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
+        _c(
+          "div",
+          { staticClass: "row justify-content-center" },
+          _vm._l(_vm.products, function(product, index) {
+            return _c(
+              "div",
+              {
+                key: product.prodId,
+                staticClass: "col-md-6 justify-content-center d-flex list-box"
+              },
+              [
+                _c("div", [
                   _c(
                     "a",
                     {
@@ -37797,61 +37770,36 @@ var render = function() {
                     },
                     [
                       _c("img", {
-                        attrs: {
-                          src: product.prodImage,
-                          width: "100px",
-                          height: "100px",
-                          alt: "Photo"
-                        }
+                        staticClass: "list-image",
+                        attrs: { src: product.prodImage, alt: "Photo" }
                       })
                     ]
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    [
-                      _vm._v("\n                        Name: "),
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "#" },
-                          on: {
-                            click: function($event) {
-                              _vm.isHidden = true
-                              _vm.sendTrue()
-                              _vm.sendData(index)
-                            }
+                  _c("div", { staticClass: "text-center m-4" }, [
+                    _c(
+                      "a",
+                      {
+                        attrs: { href: "#" },
+                        on: {
+                          click: function($event) {
+                            _vm.isHidden = true
+                            _vm.sendTrue()
+                            _vm.sendData(index)
                           }
-                        },
-                        [_vm._v(_vm._s(product.prodName)), _c("br")]
-                      ),
-                      _vm._v(
-                        " \n                        Price: RM" +
-                          _vm._s(_vm.roundPrice(index)) +
-                          " "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                        Details: \n                        "
-                      ),
-                      _vm._l(product.prodDescription, function(description) {
-                        return _c("li", { key: description.prodDescription }, [
-                          _vm._v(
-                            "\n                            " +
-                              _vm._s(description) +
-                              "\n                        "
-                          )
-                        ])
-                      })
-                    ],
-                    2
-                  )
+                        }
+                      },
+                      [_c("h5", [_vm._v(_vm._s(_vm.title(index)))])]
+                    ),
+                    _vm._v(" "),
+                    _c("p", [_vm._v("RM" + _vm._s(_vm.roundPrice(index)))])
+                  ])
                 ])
-              ])
-            }),
-            0
-          )
-        ])
+              ]
+            )
+          }),
+          0
+        )
       ])
     : _vm._e()
 }

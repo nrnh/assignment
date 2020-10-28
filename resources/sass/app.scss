@@ -10,6 +10,7 @@
 // Home page
 .home-header {
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     font-size: 20px;
 }
@@ -18,4 +19,14 @@
     position:absolute;
     margin: 5px;
     right: 20px;
+}
+
+//Product list
+.list-box {
+    margin-bottom: 50px;
+}
+
+.list-image {
+    max-width:100%;
+    max-height:100%;
 }
